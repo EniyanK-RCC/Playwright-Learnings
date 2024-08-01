@@ -1,6 +1,6 @@
 from playwright.sync_api import Page
 
-class Hackerrank_Login:
+class Hackerrank_Login_Page:
     def __init__(self, page: Page):
         self.page = page
         self.username_or_email_textbox = page.get_by_placeholder("Your username or email")
