@@ -1,16 +1,24 @@
-from playwright.sync_api import sync_playwright
+import os
+import pytest
+from dotenv import load_dotenv
 from Pages.HomePage.HomePage import Hackerrank_Home_Page
 from Pages.LoginPage.LoginPage import Hackerrank_Login_Page
 
-def test_hackerrank_login(url, email, password):
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        page = browser.new_page()
-        
-        homepage = Hackerrank_Home_Page(page)
-        loginpage = Hackerrank_Login_Page(page)
+load_dotenv()
 
-        homepage.navigate_to_login(url)
-        loginpage.login(email, password)
+@pytest.mark.usefixtures("setup_and_teardown")
+class TestHackerRank:
+    @pytest.fixture(autouse=True)
+    def setup_class(self):
+        self.url = os.getenv("URL")
+        self.email = os.getenv("EMAIL")
+        self.password = os.getenv("PASSWORD")
+        self.homepage = Hackerrank_Home_Page(self.page)
+        self.loginpage = Hackerrank_Login_Page(self.page)
 
-        browser.close()
+    def test_home(self):
+        self.homepage.navigate_to_login(self.url)
+
+    def test_login(self):
+        self.loginpage.login(self.email, self.password)
+    
