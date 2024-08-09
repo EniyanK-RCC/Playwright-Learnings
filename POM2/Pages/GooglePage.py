@@ -16,6 +16,7 @@ class googlePage:
         for index, search in enumerate(recent_searches, start=1):
             print(f"{index}: {search}")
 
+        # writing the recent searches in a file
         with open("recent_searches.txt", "w") as file:
             for index, search in enumerate(recent_searches, start=1):
                 file.write(f"{index}: {search}\n")
