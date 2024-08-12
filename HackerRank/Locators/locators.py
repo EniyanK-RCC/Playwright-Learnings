@@ -17,7 +17,8 @@ class Locator:
             "dev_login_locator": page.get_by_role("link", name="Login").nth(1),
             "email_locator": self.page.get_by_label("Your username or email"),
             "password_locator": self.page.get_by_label("Your password"),
-            "final_login": self.page.get_by_role("button", name="Log in")
+            "final_login": self.page.get_by_role("button", name="Log in"),
+            "prepare_locator": self.page.get_by_role("link", name="Prepare")
         }
 
     def get_locator(self, name: str):

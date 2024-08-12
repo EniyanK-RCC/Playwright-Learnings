@@ -28,3 +28,10 @@ class HackerrankLoginPage:
 
         logger.info("Clicking on the login button")
         self.locator.get_locator("final_login").click()
+
+        if self.locator.get_locator("prepare_locator"):
+            logger.info("Test 2 passed")
+            return True
+        else:
+            logger.error("Test 2 failed")
+            return False

@@ -29,4 +29,9 @@ class HackerrankHomePage:
         logger.info("Clicking on the developer login")
         self.locator.get_locator("dev_login_locator").click()
 
-    
+        if self.locator.get_locator("email_locator"):
+            logger.info("Test 1 passed")
+            return True
+        else:
+            logger.error("Test 1 failed")
+            return False

@@ -18,7 +18,7 @@ class TestHackerRank:
         """
         self.url = os.getenv("URL")
         self.homepage = HackerrankHomePage(self.page)
-        self.homepage.navigate_to_login(self.url)
+        assert self.homepage.navigate_to_login(self.url)
 
     def test_login(self):
         """
@@ -27,5 +27,5 @@ class TestHackerRank:
         self.email = os.getenv("EMAIL")
         self.password = os.getenv("PASSWORD")
         self.loginpage = HackerrankLoginPage(self.page)
-        self.loginpage.login(self.email, self.password)
+        assert self.loginpage.login(self.email, self.password)
     
