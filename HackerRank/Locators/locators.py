@@ -13,8 +13,8 @@ class Locator:
         """
         self.page = page
         self.locators = {
-            "login_locator": lambda: self.page.wait_for_selector('text=Log in'),
-            "dev_login_locator": lambda: self.page.wait_for_selector('xpath=//*[@id="main"]/article/div/div/div/ul/li[2]/p[2]/a'),
+            "login_locator": self.page.get_by_role("link", name="Log in"),
+            "dev_login_locator": page.get_by_role("link", name="Login").nth(1),
             "email_locator": self.page.get_by_label("Your username or email"),
             "password_locator": self.page.get_by_label("Your password"),
             "final_login": self.page.get_by_role("button", name="Log in")
