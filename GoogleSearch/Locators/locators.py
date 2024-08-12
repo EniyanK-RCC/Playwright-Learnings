@@ -14,7 +14,6 @@ class Locator:
         self.page = page
         self.locators = {
             "search_bar": self.page.get_by_title("Search"),
-            "ul": lambda: self.page.wait_for_selector('xpath=//*[@id="Alh6id"]/div[1]/div/ul'),
             "presentation_locator": self.page.locator("ul[role='listbox'] li div[role='presentation'] span")
         }
     
