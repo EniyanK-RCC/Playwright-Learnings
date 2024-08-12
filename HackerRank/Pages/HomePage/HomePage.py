@@ -1,5 +1,6 @@
 from playwright.sync_api import Page
 from Locators.locators import Locator
+from Configs.LogConfig import logger
 
 class HackerrankHomePage:
     """
@@ -19,8 +20,13 @@ class HackerrankHomePage:
         """
         Navigates to the login page and performs actions to initiate the login process.
         """
+        logger.info(f"Navigating to {url}")
         self.page.goto(url)
+
+        logger.info("Clicking on the login")
         self.locator.get_locator("login_locator").click()
+
+        logger.info("Clicking on the developer login")
         self.locator.get_locator("dev_login_locator").click()
 
     

@@ -1,5 +1,6 @@
 from playwright.sync_api import Page
 from Locators.locators import Locator
+from Configs.LogConfig import logger
 
 class HackerrankLoginPage:
     """
@@ -19,6 +20,11 @@ class HackerrankLoginPage:
         """
         Performs login operation by filling the username and password in the input area.
         """
+        logger.info("Filling up the email")
         self.locator.get_locator("email_locator").fill(username_or_email)
+
+        logger.info("Filling up the password")
         self.locator.get_locator("password_locator").fill(password)
+
+        logger.info("Clicking on the login button")
         self.locator.get_locator("final_login").click()
