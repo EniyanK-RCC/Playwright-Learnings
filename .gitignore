@@ -1,3 +1,3 @@
 __pycache__/
-.pytest_cache
-GoogleSearch/GooglePage.log
+.pytest_cache/
+*.log
